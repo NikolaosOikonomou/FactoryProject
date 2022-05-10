@@ -11,12 +11,17 @@ namespace FactoryProject
     {
         static void Main(string[] args)
         {
-            var list = CreateEmployee.EmployeeList();
+            //var dictionary = CreateEmployee.EmployeeList();
 
-            foreach (var emp in list)
-            {
-                Console.WriteLine(emp);
-            }
+            //foreach (var emp in dictionary)
+            //{
+            //    Console.WriteLine(emp);
+            //}
+
+          
+
+            Console.WriteLine(CreateFactory.CFactory().Name);
+          
         }
     }
 }
