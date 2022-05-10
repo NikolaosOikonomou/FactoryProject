@@ -1,4 +1,5 @@
 ﻿//using FactoryProject.Services;
+using FactoryProject.Domains;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,9 @@ namespace FactoryProject
     {
         public string Name { get; set; }
         public Dictionary<int, Employee> Employees { get; set; }
-        public int Quantity { get; set; }
+        public Warehouse Warehouse { get; set; }
 
+        
 
         //List<Employee> employeesList = new List<Employee>();
 
@@ -25,10 +27,10 @@ namespace FactoryProject
 
         //public Factory()
         //{
-                
+
         //}
 
-       
+
 
     }
 }

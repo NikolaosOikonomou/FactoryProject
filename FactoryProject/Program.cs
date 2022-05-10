@@ -1,4 +1,5 @@
-﻿using FactoryProject.Services;
+﻿using FactoryProject.Domains;
+using FactoryProject.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,17 +12,17 @@ namespace FactoryProject
     {
         static void Main(string[] args)
         {
-            //var dictionary = CreateEmployee.EmployeeList();
+            var dictionary = CreateEmployee.EmployeeList();
 
-            //foreach (var emp in dictionary)
-            //{
-            //    Console.WriteLine(emp);
-            //}
+            foreach (var emp in dictionary)
+            {
+                Console.WriteLine(emp);
+            }
 
-          
 
-            Console.WriteLine(CreateFactory.CFactory().Name);
-          
+            Console.WriteLine( SupplyOffer.SupplyOffers().Length);
+            Console.WriteLine(CreateFactory.CFactory());
+            
         }
     }
 }

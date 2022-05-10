@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace FactoryProject
 {
-    class Choloate
+    class DarkChocolate
     {
-        
+        public int KiloPerUnit { get; set; }
+        public float PricePerUnit { get; set; }
     }
 }
