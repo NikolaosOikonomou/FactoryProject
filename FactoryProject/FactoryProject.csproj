@@ -55,6 +55,7 @@
     <Compile Include="Services\CreateEmployee.cs" />
     <Compile Include="Services\CreateFactory.cs" />
     <Compile Include="Domains\Products\WhiteChocolate.cs" />
+    <Compile Include="Services\FactoryService.cs" />
     <Compile Include="Services\SupplyService.cs" />
   </ItemGroup>
   <ItemGroup>

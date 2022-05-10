@@ -10,10 +10,12 @@ namespace FactoryProject.Services
 {
     class CreateFactory : Factory
     {
-        public static Factory CFactory()
+        public static Factory Factory()
         {
             Warehouse warehouse = new Warehouse();
-            CreateFactory alimpinisis = new CreateFactory()
+            SupplyOffer bestOffer = Warehouse.BestOffer();
+            warehouse.RowMatterials = bestOffer.Quantity;
+            Factory alimpinisis = new CreateFactory()
             {
                 Name = "Alimpinisis AE",
                 Employees = CreateEmployee.EmployeeList(),
@@ -25,8 +27,8 @@ namespace FactoryProject.Services
 
         public override string ToString()
         {
-            return ($"Factory Name:{CreateFactory.CFactory().Name}\n\tHas a total of " +
-                $"{CreateFactory.CFactory().Employees.Count} Employees, and {CreateFactory.CFactory().Warehouse} kilos row material");
+            return ($"Factory Name:{Name}\n\tHas a total of " +
+                $"{Employees.Count} Employees, and {Warehouse} kilos row material");
         }
     }
 }

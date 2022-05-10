@@ -9,23 +9,26 @@ namespace FactoryProject.Domains
 {
     class Warehouse
     {
-        public int RowMatterials { get; set; }
+        public double RowMatterials { get; set; }
         public SupplyOffer[] SupplyOffer { get; set; }
-        //public Warehouse(int rowMatterials, SupplyOffer[] supplyOffer)
-        //{
-        //    RowMatterials = rowMatterials;
-        //    SupplyOffer = ;
-        //}
 
-        
-        
-        public void OfferChoice()
+        public static SupplyOffer BestOffer()
         {
-            Random rand = new Random();
-           // SupplyOffer.SupplyOffers();
-            //SupplyService offer = new SupplyService();
-           
+            SupplyOffer[] offers = SupplyOfferService.SupplyOffers();
+            SupplyOffer bestOffer = offers[0];
+            for (int i = 1; i < 3; i++)
+            {
+                if (offers[i].PricePerKilo <= bestOffer.PricePerKilo)
+                {
+                    if (offers[i].Quantity > bestOffer.Quantity)
+                    {
+                        bestOffer = offers[i];
+                    }
+                }  
+            }
+            return bestOffer;
         }
+
 
 
         public override string ToString()

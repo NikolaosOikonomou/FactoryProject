@@ -12,16 +12,24 @@ namespace FactoryProject
     {
         static void Main(string[] args)
         {
-            var dictionary = CreateEmployee.EmployeeList();
+            //var dictionary = CreateEmployee.EmployeeList();
 
-            foreach (var emp in dictionary)
-            {
-                Console.WriteLine(emp);
-            }
+            //foreach (var emp in dictionary)
+            //{
+            //    Console.WriteLine(emp);
+            //}
+            FactoryService.Start();
+            Console.WriteLine(CreateFactory.Factory());
+            //var supplyOffer = SupplyOfferService.SupplyOffers();
+            //foreach (var offer in supplyOffer)
+            //{
+            //    Console.WriteLine(offer);
+            //}
+            //Console.WriteLine("BEST OFFER LOL------------------------");
+            //SupplyOffer bestOffer = Warehouse.BestOffer();
+            //Console.WriteLine(bestOffer);
 
 
-            Console.WriteLine( SupplyOffer.SupplyOffers().Length);
-            Console.WriteLine(CreateFactory.CFactory());
             
         }
     }

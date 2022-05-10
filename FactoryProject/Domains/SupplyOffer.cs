@@ -15,7 +15,7 @@ namespace FactoryProject.Domains
     class SupplyOffer
     {
         public double Quantity { get; set; }
-        public double PricePerKilo { get; set; } 
+        public double PricePerKilo { get; set; }
         public RowMatterialQuality RowMatterialQuality { get; set; }
 
         public SupplyOffer()
@@ -30,15 +30,10 @@ namespace FactoryProject.Domains
             RowMatterialQuality = rowMatterialQuality;
         }
 
-        public static SupplyOffer[] SupplyOffers()
+        public override string ToString()
         {
-            Random rand = new Random();
-            SupplyOffer[] offers = new SupplyOffer[3];
-            for (int i = 0; i < 3; i++)
-            {
-                offers[i] = new SupplyOffer(rand.Next(4500, 5000), rand.Next(1, 3), (RowMatterialQuality)rand.Next(1, 4));
-            }
-            return offers;
+            return ($"Season best offer: Quantity {Quantity} Price per kilo {PricePerKilo} and Quality {RowMatterialQuality}");
         }
+
     }
 }

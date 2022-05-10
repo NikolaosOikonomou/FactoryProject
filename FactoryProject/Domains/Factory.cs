@@ -15,22 +15,10 @@ namespace FactoryProject
         public Warehouse Warehouse { get; set; }
 
         
+        public Factory()
+        {
 
-        //List<Employee> employeesList = new List<Employee>();
-
-        //public Factory(string name, Dictionary<int, Employee> employees, int quantity)
-        //{
-        //    Name = name;
-        //    Employees = employees;
-        //    Quantity = quantity;
-        //}
-
-        //public Factory()
-        //{
-
-        //}
-
-
+        }
 
     }
 }
