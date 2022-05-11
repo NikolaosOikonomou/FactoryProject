@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domains\Company.cs" />
+    <Compile Include="Domains\DailyProduction.cs" />
     <Compile Include="Domains\Products\DarkChocolate.cs" />
     <Compile Include="Domains\Employee.cs" />
     <Compile Include="Domains\Factory.cs" />
@@ -56,7 +58,8 @@
     <Compile Include="Services\CreateFactory.cs" />
     <Compile Include="Domains\Products\WhiteChocolate.cs" />
     <Compile Include="Services\FactoryService.cs" />
-    <Compile Include="Services\SupplyService.cs" />
+    <Compile Include="Services\ProductionService.cs" />
+    <Compile Include="Services\SupplyOfferService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

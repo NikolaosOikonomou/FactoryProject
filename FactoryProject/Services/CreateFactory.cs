@@ -15,11 +15,16 @@ namespace FactoryProject.Services
             Warehouse warehouse = new Warehouse();
             SupplyOffer bestOffer = Warehouse.BestOffer();
             warehouse.RowMatterials = bestOffer.Quantity;
+            warehouse.RowMatterialQuality = bestOffer.RowMatterialQuality;
+            DailyProduction dailyProduction = new DailyProduction();
+            //dailyProduction.ProductionRowMaterial = warehouse.RowMatterials;
             Factory alimpinisis = new CreateFactory()
             {
                 Name = "Alimpinisis AE",
                 Employees = CreateEmployee.EmployeeList(),
-                Warehouse = warehouse
+                Warehouse = warehouse,
+                DailyProduction = dailyProduction
+
             };
 
             return alimpinisis;
@@ -28,7 +33,9 @@ namespace FactoryProject.Services
         public override string ToString()
         {
             return ($"Factory Name:{Name}\n\tHas a total of " +
-                $"{Employees.Count} Employees, and {Warehouse} kilos row material");
+                $"{Employees.Count} Employees, and {Warehouse} kilos row material with {Warehouse.RowMatterialQuality} Quality!" +
+                $"\n\tTherefore the dailyproduction line has {DailyProduction.ProductionRowMaterial} kilos of row materials ready" +
+                $" to become chocolates!");
         }
     }
 }

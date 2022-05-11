@@ -5,16 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace FactoryProject.Services
 {
-    class ChololateProductionService
+    class ProductionService
     {
-        public static BlackChocolate DarkChocolateUnit(int blackChocoPerDay)
+        public static List<BlackChocolate> Production(int darkpicies)
         {
-            
-            BlackChocolate BlackChocolate = new BlackChocolate();
+            for (int i = 0; i < darkpicies; i++)
+            {
+                
+            }
             return null;
-        }
+        } 
+
     }
 }

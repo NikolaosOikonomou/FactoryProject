@@ -10,8 +10,8 @@ namespace FactoryProject.Domains
     class Warehouse
     {
         public double RowMatterials { get; set; }
-        public SupplyOffer[] SupplyOffer { get; set; }
-
+        public RowMatterialQuality RowMatterialQuality { get; set; }
+       
         public static SupplyOffer BestOffer()
         {
             SupplyOffer[] offers = SupplyOfferService.SupplyOffers();
