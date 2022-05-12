@@ -9,7 +9,7 @@ namespace FactoryProject
     class BlackChocolate
     {
         public double KiloPerUnit { get; set; }
-        public float PricePerUnit { get; set; }
+        public double PricePerUnit { get; set; }
 
         public BlackChocolate()
         {

@@ -14,7 +14,7 @@ namespace FactoryProject.Domains
     }
     class SupplyOffer
     {
-        public double Quantity { get; set; }
+        public double OfferQuantity { get; set; }
         public double PricePerKilo { get; set; }
         public RowMatterialQuality RowMatterialQuality { get; set; }
 
@@ -23,16 +23,16 @@ namespace FactoryProject.Domains
 
         }
 
-        public SupplyOffer(double quantity, double pricePerKilo, RowMatterialQuality rowMatterialQuality)
+        public SupplyOffer(double offerQuantity, double pricePerKilo, RowMatterialQuality rowMatterialQuality)
         {
-            Quantity = quantity;
+            OfferQuantity = offerQuantity;
             PricePerKilo = pricePerKilo;
             RowMatterialQuality = rowMatterialQuality;
         }
 
         public override string ToString()
         {
-            return ($"Season best offer: Quantity {Quantity} Price per kilo {PricePerKilo} and Quality {RowMatterialQuality}");
+            return ($"Season best offer: OfferQuantity {OfferQuantity} Price per kilo {PricePerKilo} and Quality {RowMatterialQuality}");
         }
 
     }

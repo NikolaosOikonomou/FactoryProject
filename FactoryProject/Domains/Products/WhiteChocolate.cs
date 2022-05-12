@@ -14,8 +14,14 @@ namespace FactoryProject
     }
     class WhiteChocolate
     {
-        public int KiloPerUnit { get; set; }
-        public float PricePerUnit { get; set; }
+        public double KiloPerUnit { get; set; }
+        public double PricePerUnit { get; set; }
         public Type Type { get; set; }
+
+        public WhiteChocolate()
+        {
+            KiloPerUnit = 1.1;
+            PricePerUnit = 1.3;
+        }
     }
 }

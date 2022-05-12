@@ -12,11 +12,11 @@ namespace FactoryProject
     {
         static void Main(string[] args)
         {
-          
+
+            Company company = new Company();
+            company.Start();
+            Console.WriteLine(company);
             
-            Console.WriteLine(CreateFactory.Factory());
-          
- 
         }
     }
 }

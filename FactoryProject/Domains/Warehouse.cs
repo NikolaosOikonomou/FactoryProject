@@ -9,7 +9,7 @@ namespace FactoryProject.Domains
 {
     class Warehouse
     {
-        public double RowMatterials { get; set; }
+        public double RowMatterialsQuantity { get; set; }
         public RowMatterialQuality RowMatterialQuality { get; set; }
        
         public static SupplyOffer BestOffer()
@@ -20,7 +20,7 @@ namespace FactoryProject.Domains
             {
                 if (offers[i].PricePerKilo <= bestOffer.PricePerKilo)
                 {
-                    if (offers[i].Quantity > bestOffer.Quantity)
+                    if (offers[i].OfferQuantity > bestOffer.OfferQuantity)
                     {
                         bestOffer = offers[i];
                     }
@@ -33,7 +33,7 @@ namespace FactoryProject.Domains
 
         public override string ToString()
         {
-            return ($"{RowMatterials}");
+            return ($"{RowMatterialsQuantity}");
         }
     }
 }

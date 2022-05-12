@@ -8,9 +8,6 @@ namespace FactoryProject.Services
 {
     class FactoryService
     {
-        public static void Start()
-        {
-            CreateFactory.Factory();
-        }
+      
     }
 }
