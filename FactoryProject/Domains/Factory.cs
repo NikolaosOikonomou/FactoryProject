@@ -15,12 +15,14 @@ namespace FactoryProject
         public Warehouse Warehouse { get; set; }
         public DailyProduction DailyProduction { get; set; }
         public ProductionWarehouse ProductionWarehouse { get; set; }
+    
 
         public Factory()
         {
             Employees = new Dictionary<int, Employee>();
             Warehouse = new Warehouse();
             DailyProduction = new DailyProduction();
+            ProductionWarehouse = new ProductionWarehouse();
         }
 
         public void NewFactory()
@@ -33,18 +35,19 @@ namespace FactoryProject
             Console.WriteLine($"The Warehouse has {Warehouse.RowMatterialsQuantity} kilos row materials");
         }
 
-       
-
-        public void WorkingDay()
+        public void WorkingDay(Shop shop)
         {
+
             DailyProduction.BlackChocoProduction();
             DailyProduction.MilkChocoProduction();
             DailyProduction.WhiteChocoProduction();
             double rowMatterialsUsed = DailyProduction.DailyRowMaterialsUsed(DailyProduction.BlackChocolateList[0].KiloPerUnit, DailyProduction.MilkChocolatesList[0].KiloPerUnit, DailyProduction.WhiteChocolatesList[0].KiloPerUnit);
             Warehouse.RowMatterialsQuantity = Warehouse.RowMatterialsQuantity - rowMatterialsUsed;
-            //ProductionWarehouse productionWarehouse = new ProductionWarehouse();
-              DailyProduction.ChocolatesToProductionWarehouse();
             Console.WriteLine($"After production day: {Warehouse.RowMatterialsQuantity}");
+            DailyProduction.ChocolatesToProductionWarehouse(ProductionWarehouse, shop);
+            DailyProduction.BlackChocolateList.Clear();
+            DailyProduction.MilkChocolatesList.Clear();
+            DailyProduction.WhiteChocolatesList.Clear();
         }
 
         

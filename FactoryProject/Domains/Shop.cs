@@ -8,8 +8,15 @@ namespace FactoryProject.Domains
 {
     class Shop
     {
-        public List<BlackChocolate> BlackChocolate { get; set; }
-        public List<WhiteChocolate> WhiteChocolate { get; set; }
-        public List<MilkChocolate> MilkChocolate { get; set; }
+        public List<BlackChocolate> BlackChocolateList { get; set; }
+        public List<WhiteChocolate> WhiteChocolateList { get; set; }
+        public List<MilkChocolate> MilkChocolateList { get; set; }
+
+        public Shop()
+        {
+            BlackChocolateList = new List<BlackChocolate>();
+            WhiteChocolateList = new List<WhiteChocolate>();
+            MilkChocolateList = new List<MilkChocolate>();
+        }
     }
 }

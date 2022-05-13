@@ -21,7 +21,9 @@ namespace FactoryProject.Domains
         public void Start()
         { 
             Factory.NewFactory();
-            Factory.WorkingDay();
+            
+            Factory.WorkingDay(Shop);
+
             Console.ReadKey();
             //DailyProduction dailyProduction = new DailyProduction();
             //dailyProduction.ChocolatesToProductionWarehouse();
