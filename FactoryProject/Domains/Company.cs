@@ -28,10 +28,11 @@ namespace FactoryProject.Domains
             Factory.NewFactory();
             PrintService.FactoryInfo(Factory,ThisDay);
             PrintService.BestOfferDetails(Factory.Warehouse);
-            for (int i = 1; i < 6; i++)
+            for (int i = 1; i < 10; i++)
             {
-                Factory.WorkingDay(Shop, ThisDay);
+                Factory.WorkingDay(Shop, ThisDay, i);
                 Shop.ShopSales(Shop, ThisDay);
+                Shop.InNeedOfChocolates(Factory.DailyProduction);
                 ThisDay = ThisDay.AddDays(1);
             }
             

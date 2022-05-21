@@ -39,10 +39,10 @@ namespace FactoryProject.Services
                $" {productionWarehouse.WarehouseWhiteChocolatesList.Count} White Chocolates.");
         }
 
-        public static void ShopWarehouseReport(Shop shop)
+        public static void ShopWarehouseReport(ShopWarehouse shopWarehouse)
         {
-            Console.WriteLine($"Shop now has {shop.BlackChocolateList.Count} Black Chocolates," +
-                $" {shop.MilkChocolateList.Count} Milk Chocolates and {shop.WhiteChocolateList.Count} White Chocolates.");
+            Console.WriteLine($"Shop now has {shopWarehouse.ShopBlackChocolateList.Count} Black Chocolates," +
+                $" {shopWarehouse.ShopMilkChocolateList.Count} Milk Chocolates and {shopWarehouse.ShopWhiteChocolateList.Count} White Chocolates.");
         }
 
         public static void ShopSales(Shop shop, DateTime dateTime)

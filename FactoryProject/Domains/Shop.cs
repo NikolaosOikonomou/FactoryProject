@@ -9,36 +9,45 @@ namespace FactoryProject.Domains
 {
     class Shop
     {
-        public List<BlackChocolate> BlackChocolateList { get; set; }
-        public List<WhiteChocolate> WhiteChocolateList { get; set; }
-        public List<MilkChocolate> MilkChocolateList { get; set; }
+        public ShopWarehouse ShopWarehouse { get; set; }
+       
         public double TotalIncome { get; set; }
 
         public Shop()
         {
-            BlackChocolateList = new List<BlackChocolate>();
-            WhiteChocolateList = new List<WhiteChocolate>();
-            MilkChocolateList = new List<MilkChocolate>();
+            ShopWarehouse = new ShopWarehouse();
         }
 
         public void ShopSales(Shop shop, DateTime dateTime)
         {
-            for (int i = 0; i < shop.BlackChocolateList.Count / 2; i++)
+            for (int i = 0; i < shop.ShopWarehouse.ShopBlackChocolateList.Count / 2; i++)
             {
-                shop.BlackChocolateList.RemoveAt(i);
-                TotalIncome = (BlackChocolateList[i].PricePerUnit) + TotalIncome;
+                shop.ShopWarehouse.ShopBlackChocolateList.RemoveAt(i);
+                TotalIncome = (shop.ShopWarehouse.ShopBlackChocolateList[i].PricePerUnit) + TotalIncome;
             }
-            for (int i = 0; i < (shop.MilkChocolateList.Count / 2); i++)
+            for (int i = 0; i < (shop.ShopWarehouse.ShopMilkChocolateList.Count / 2); i++)
             {
-                shop.MilkChocolateList.RemoveAt(i);
-                TotalIncome = MilkChocolateList[i].PricePerUnit + TotalIncome;
+                shop.ShopWarehouse.ShopMilkChocolateList.RemoveAt(i);
+                TotalIncome = shop.ShopWarehouse.ShopMilkChocolateList[i].PricePerUnit + TotalIncome;
             }
-            for (int i = 0; i < (shop.WhiteChocolateList.Count / 2); i++)
+            for (int i = 0; i < (shop.ShopWarehouse.ShopWhiteChocolateList.Count / 2); i++)
             {
-                shop.WhiteChocolateList.RemoveAt(i);
-                TotalIncome = WhiteChocolateList[i].PricePerUnit + TotalIncome;
+                shop.ShopWarehouse.ShopWhiteChocolateList.RemoveAt(i);
+                TotalIncome = shop.ShopWarehouse.ShopWhiteChocolateList[i].PricePerUnit + TotalIncome;
             }
             PrintService.ShopSales(shop, dateTime);
+        }
+
+        public void InNeedOfChocolates(DailyProduction dailyProduction)
+        {
+            if (ShopWarehouse.ShopBlackChocolateList.Count <= (dailyProduction.BlackChocoPerDay * 0.5) * 0.25)
+                dailyProduction.ProductionWarehouse.RefillBlackChocolate(ShopWarehouse);
+
+            if (ShopWarehouse.ShopWhiteChocolateList.Count <= (dailyProduction.WhiteChocoPerDay * 0.5) * 0.25)
+                dailyProduction.ProductionWarehouse.RefillWhiteChocolate(ShopWarehouse);
+
+            if (ShopWarehouse.ShopMilkChocolateList.Count <= (dailyProduction.MilkChocoPerDay * 0.5) * 0.25)
+                dailyProduction.ProductionWarehouse.RefillMilkChocolate(ShopWarehouse);
         }
     }
 }

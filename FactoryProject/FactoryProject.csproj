@@ -51,6 +51,7 @@
     <Compile Include="Domains\Employee.cs" />
     <Compile Include="Domains\Factory.cs" />
     <Compile Include="Domains\Products\MilkChocolate.cs" />
+    <Compile Include="Domains\ShopWarehouse.cs" />
     <Compile Include="Domains\SupplyOffer.cs" />
     <Compile Include="Domains\Warehouse.cs" />
     <Compile Include="Program.cs" />
