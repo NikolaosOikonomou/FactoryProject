@@ -14,7 +14,7 @@ namespace FactoryProject
         public BlackChocolate()
         {
             KiloPerUnit = 0.05;
-            PricePerUnit = 1;
+            PricePerUnit = 1.1;
         }
     }
 }

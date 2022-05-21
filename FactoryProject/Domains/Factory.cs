@@ -28,34 +28,30 @@ namespace FactoryProject
         public void NewFactory()
         {
             Name = "Alimpinisis AE";
-            Employees = CreateEmployee.EmployeeList();
+            Employees = Employee.EmployeeList();
             SupplyOffer bestOffer = Warehouse.BestOffer();
             Warehouse.RowMatterialsQuantity = bestOffer.OfferQuantity;
             Warehouse.RowMatterialQuality = bestOffer.RowMatterialQuality;
-            Console.WriteLine($"The Warehouse has {Warehouse.RowMatterialsQuantity} kilos row materials");
+            Warehouse.BestOfferPrice = bestOffer.PricePerKilo;
         }
-
-        public void WorkingDay(Shop shop)
-        {
-
-            DailyProduction.BlackChocoProduction();
-            DailyProduction.MilkChocoProduction();
-            DailyProduction.WhiteChocoProduction();
-            double rowMatterialsUsed = DailyProduction.DailyRowMaterialsUsed(DailyProduction.BlackChocolateList[0].KiloPerUnit, DailyProduction.MilkChocolatesList[0].KiloPerUnit, DailyProduction.WhiteChocolatesList[0].KiloPerUnit);
-            Warehouse.RowMatterialsQuantity = Warehouse.RowMatterialsQuantity - rowMatterialsUsed;
-            Console.WriteLine($"After production day: {Warehouse.RowMatterialsQuantity}");
-            DailyProduction.ChocolatesToProductionWarehouse(ProductionWarehouse, shop);
-            DailyProduction.BlackChocolateList.Clear();
-            DailyProduction.MilkChocolatesList.Clear();
-            DailyProduction.WhiteChocolatesList.Clear();
-        }
-
         
+        public void WorkingDay(Shop shop, DateTime dateTime)
+        {
+            Console.WriteLine($"\nThe Warehouse has {Warehouse.RowMatterialsQuantity} kilos row materials");
 
-        //public override string ToString()
-        //{
-        //    return ($"Factory Name:{Name}\n\tHas a total of " +
-        //        $"{Employees.Count} Employees, and {Warehouse} kilos row material with {Warehouse.RowMatterialQuality} Quality!");
-        //}
+            
+                DailyProduction.ChocolatesProduction();
+                PrintService.ProductionReport(DailyProduction, dateTime);
+                double rowMatterialsUsed = DailyProduction.DailyRowMaterialsUsed(DailyProduction.BlackChocolateList[0].KiloPerUnit, DailyProduction.MilkChocolatesList[0].KiloPerUnit, DailyProduction.WhiteChocolatesList[0].KiloPerUnit);
+                Warehouse.RowMatterialsQuantity = Warehouse.RowMatterialsQuantity - rowMatterialsUsed;
+                DailyProduction.ChocolatesToProductionWarehouseAndShop(ProductionWarehouse, shop);
+                DailyProduction.BlackChocolateList.Clear();
+                DailyProduction.MilkChocolatesList.Clear();
+                DailyProduction.WhiteChocolatesList.Clear();
+            
+            PrintService.ProductionWarehouseReport(ProductionWarehouse);
+            PrintService.ShopWarehouseReport(shop);
+        }
+   
     }
 }

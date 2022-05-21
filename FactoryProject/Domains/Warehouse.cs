@@ -9,12 +9,19 @@ namespace FactoryProject.Domains
 {
     class Warehouse
     {
+        public SupplyOffer SupplyOffer { get; set; }
+        public double BestOfferPrice { get; set; }
         public double RowMatterialsQuantity { get; set; }
         public RowMatterialQuality RowMatterialQuality { get; set; }
+
+        public Warehouse()
+        {
+            SupplyOffer = new SupplyOffer();
+        }
        
         public static SupplyOffer BestOffer()
         {
-            SupplyOffer[] offers = SupplyOfferService.SupplyOffers();
+            SupplyOffer[] offers = SupplyOffer.SupplyOffers();
             SupplyOffer bestOffer = offers[0];
             for (int i = 1; i < 3; i++)
             {
@@ -29,11 +36,5 @@ namespace FactoryProject.Domains
             return bestOffer;
         }
 
-
-
-        public override string ToString()
-        {
-            return ($"{RowMatterialsQuantity}");
-        }
     }
 }

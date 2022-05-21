@@ -9,6 +9,7 @@ namespace FactoryProject.Domains
 {
     class Company
     {
+        public DateTime ThisDay { get; set; }
         public Factory Factory { get; set; }
         public Shop Shop { get; set; }
 
@@ -16,33 +17,25 @@ namespace FactoryProject.Domains
         {
             Factory = new Factory();
             Shop = new Shop();
+            ThisDay = new DateTime();
         }
-
+       
         public void Start()
-        { 
-            Factory.NewFactory();
-            
-            Factory.WorkingDay(Shop);
-
-            Console.ReadKey();
-            //DailyProduction dailyProduction = new DailyProduction();
-            //dailyProduction.ChocolatesToProductionWarehouse();
-
-            //Factory.DailyProduction.MilkChocolatesList.Clear();
-            //Factory.DailyProduction.WhiteChocolatesList.Clear();
-            //Factory.DailyProduction.BlackChocolateList.Clear();
-        }
-
-
-
-        public override string ToString()
         {
-            return ($"Factory Name:{Factory.Name}\n\tHas a total of " +
-                $"{Factory.Employees.Count} Employees, and {Factory.Warehouse} kilos row material " +
-                $"with {Factory.Warehouse.RowMatterialQuality} Quality!" +
-                $"\nDailyProduction\t BlackChoco:{Factory.DailyProduction.BlackChocolateList.Count}" +
-                $"             \n\t\t WhiteChoco: {Factory.DailyProduction.MilkChocolatesList.Count}" +
-                $"             \n\t\t MilkChoco: {Factory.DailyProduction.MilkChocolatesList.Count}");
+            ThisDay = DateTime.Today;
+            
+            Console.WriteLine(ThisDay);
+            Factory.NewFactory();
+            PrintService.FactoryInfo(Factory,ThisDay);
+            PrintService.BestOfferDetails(Factory.Warehouse);
+            for (int i = 1; i < 6; i++)
+            {
+                Factory.WorkingDay(Shop, ThisDay);
+                Shop.ShopSales(Shop, ThisDay);
+                ThisDay = ThisDay.AddDays(1);
+            }
+            
         }
+
     }
 }

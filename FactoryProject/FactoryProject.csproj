@@ -55,14 +55,8 @@
     <Compile Include="Domains\Warehouse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ChololateProductionService.cs" />
-    <Compile Include="Services\CreateEmployee.cs" />
-    <Compile Include="Services\CreateFactory.cs" />
     <Compile Include="Domains\Products\WhiteChocolate.cs" />
-    <Compile Include="Services\DistributionService.cs" />
-    <Compile Include="Services\FactoryService.cs" />
-    <Compile Include="Services\ProductionService.cs" />
-    <Compile Include="Services\SupplyOfferService.cs" />
+    <Compile Include="Services\PrintService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

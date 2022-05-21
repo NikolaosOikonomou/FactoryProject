@@ -21,7 +21,6 @@ namespace FactoryProject.Domains
 
         public DailyProduction()
         {
-            
             BlackChocoPerDay = 300;
             WhiteChocoPerDay = 100;
             MilkChocoPerDay = 100;
@@ -29,37 +28,26 @@ namespace FactoryProject.Domains
             WhiteChocolatesList = new List<WhiteChocolate>();
             MilkChocolatesList = new List<MilkChocolate>();
             TotalProducationPerDay = BlackChocoPerDay + WhiteChocoPerDay + MilkChocoPerDay;
-            
         }
 
-        public void BlackChocoProduction()
+        public void ChocolatesProduction()
         {
             for (int i = 0; i < BlackChocoPerDay; i++)  
-            {
                 BlackChocolateList.Add(new BlackChocolate());
-            }
-        }
-        public void WhiteChocoProduction()
-        {
-            for (int i = 0; i < WhiteChocoPerDay; i++)
-            {
-                WhiteChocolatesList.Add(new WhiteChocolate());
-            }
-        }
-        public void MilkChocoProduction()
-        {
-            for (int i = 0; i < MilkChocoPerDay; i++)   
-            {
-                MilkChocolatesList.Add(new MilkChocolate());
-            }
-        }
 
+            for (int i = 0; i < WhiteChocoPerDay; i++)
+                WhiteChocolatesList.Add(new WhiteChocolate());
+
+            for (int i = 0; i < MilkChocoPerDay; i++)
+                MilkChocolatesList.Add(new MilkChocolate());
+        }
+    
         public double DailyRowMaterialsUsed(double blackWeight, double milkWeight, double whiteWeight)
         {
             return blackWeight * BlackChocoPerDay + milkWeight * MilkChocoPerDay + whiteWeight * WhiteChocoPerDay;
         }
 
-        public void ChocolatesToProductionWarehouse(ProductionWarehouse productionWarehouse, Shop shop)
+        public void ChocolatesToProductionWarehouseAndShop(ProductionWarehouse productionWarehouse, Shop shop)
         {
             
             for (int i = 0; i < BlackChocolateList.Count ; i++)
@@ -83,7 +71,8 @@ namespace FactoryProject.Domains
                 else
                     shop.WhiteChocolateList.Add(WhiteChocolatesList[i]);
             }
+          
         }
-
+        
     }
 }

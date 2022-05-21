@@ -15,7 +15,7 @@ namespace FactoryProject
 
             Company company = new Company();
             company.Start();
-            Console.WriteLine(company);
+           
             
         }
     }
