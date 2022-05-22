@@ -46,5 +46,14 @@ namespace FactoryProject.Domains
             }
         }
 
+        public void NewShopCheck(List<Shop> shops)
+        {
+            if(WarehouseBlackChocolateList.Count > 1765)
+            {
+                shops.Add(new Shop());
+                
+            }
+
+        }
     }
 }

@@ -10,17 +10,19 @@ namespace FactoryProject.Domains
     class Shop
     {
         public ShopWarehouse ShopWarehouse { get; set; }
-       
+        public Random Random { get; set; }
         public double TotalIncome { get; set; }
 
         public Shop()
         {
             ShopWarehouse = new ShopWarehouse();
+            Random = new Random();
         }
 
-        public void ShopSales(Shop shop, DateTime dateTime)
+        public void ShopSales(Shop shop, DateTime dateTime, int shopCounter)
         {
-            for (int i = 0; i < shop.ShopWarehouse.ShopBlackChocolateList.Count / 2; i++)
+            
+            for (int i = 0; i < (shop.ShopWarehouse.ShopBlackChocolateList.Count / 2) ; i++)
             {
                 shop.ShopWarehouse.ShopBlackChocolateList.RemoveAt(i);
                 TotalIncome = (shop.ShopWarehouse.ShopBlackChocolateList[i].PricePerUnit) + TotalIncome;
@@ -35,7 +37,7 @@ namespace FactoryProject.Domains
                 shop.ShopWarehouse.ShopWhiteChocolateList.RemoveAt(i);
                 TotalIncome = shop.ShopWarehouse.ShopWhiteChocolateList[i].PricePerUnit + TotalIncome;
             }
-            PrintService.ShopSales(shop, dateTime);
+            PrintService.ShopsInformation(shop, dateTime, shopCounter);
         }
 
         public void InNeedOfChocolates(DailyProduction dailyProduction)

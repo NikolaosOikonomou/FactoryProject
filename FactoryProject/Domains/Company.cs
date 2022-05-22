@@ -11,13 +11,15 @@ namespace FactoryProject.Domains
     {
         public DateTime ThisDay { get; set; }
         public Factory Factory { get; set; }
-        public Shop Shop { get; set; }
+        public List<Shop> Shops { get; set; }
+        public double IncomeOfAllShops { get; set; }
 
         public Company()
         {
             Factory = new Factory();
-            Shop = new Shop();
+            Shops = new List<Shop>();
             ThisDay = new DateTime();
+            IncomeOfAllShops = 0;
         }
        
         public void Start()
@@ -28,11 +30,21 @@ namespace FactoryProject.Domains
             Factory.NewFactory();
             PrintService.FactoryInfo(Factory,ThisDay);
             PrintService.BestOfferDetails(Factory.Warehouse);
-            for (int i = 1; i < 10; i++)
+            Shops.Add(new Shop());
+            for (int i = 1; i < 150; i++)
             {
-                Factory.WorkingDay(Shop, ThisDay, i);
-                Shop.ShopSales(Shop, ThisDay);
-                Shop.InNeedOfChocolates(Factory.DailyProduction);
+                var shopCounter = 1;
+                foreach (Shop shop in Shops)
+                {
+                    Factory.WorkingDay(shop, ThisDay, i);
+                    shop.ShopSales(shop, ThisDay, shopCounter);
+                    shop.InNeedOfChocolates(Factory.DailyProduction);
+                    shopCounter++;
+                    IncomeOfAllShops = IncomeOfAllShops + shop.TotalIncome;
+                }
+                Console.WriteLine($"The total income for the Company in {ThisDay} is {IncomeOfAllShops}");
+                Console.WriteLine($"Our Company has {Shops.Count} Shops");
+                Factory.DailyProduction.ProductionWarehouse.NewShopCheck(Shops);
                 ThisDay = ThisDay.AddDays(1);
             }
             

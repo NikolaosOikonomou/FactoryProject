@@ -45,9 +45,14 @@ namespace FactoryProject.Services
                 $" {shopWarehouse.ShopMilkChocolateList.Count} Milk Chocolates and {shopWarehouse.ShopWhiteChocolateList.Count} White Chocolates.");
         }
 
-        public static void ShopSales(Shop shop, DateTime dateTime)
+        public static void ShopsInformation(Shop shop, DateTime dateTime, int shopCounter)
         {
-            Console.WriteLine($"Shop total income for  {dateTime}  is : {shop.TotalIncome} ");
+            Console.WriteLine($"Shop {shopCounter} total income for  {dateTime}  is : {shop.TotalIncome}" +
+                $"\n{shop.ShopWarehouse.ShopBlackChocolateList.Count} Black Chocolates" +
+                $"\n{shop.ShopWarehouse.ShopMilkChocolateList.Count} Milk Chocolates" +
+                $"\n{shop.ShopWarehouse.ShopWhiteChocolateList.Count} White Chocolates ");
         }
+
+      
     }
 }

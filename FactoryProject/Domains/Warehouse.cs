@@ -11,12 +11,14 @@ namespace FactoryProject.Domains
     {
         public SupplyOffer SupplyOffer { get; set; }
         public double BestOfferPrice { get; set; }
-        public double RowMatterialsQuantity { get; set; }
         public RowMatterialQuality RowMatterialQuality { get; set; }
+        public double RowMatterialsQuantity { get; set; }
+        public SupplyOffer BestOfferStored { get; set; }
 
         public Warehouse()
         {
             SupplyOffer = new SupplyOffer();
+            BestOfferStored = new SupplyOffer();
         }
        
         public static SupplyOffer BestOffer()
