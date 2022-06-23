@@ -19,6 +19,12 @@ namespace FactoryProject.Domains
             Random = new Random();
         }
 
+        /// <summary>
+        /// Represents the selling process for each type of chocolate and calculates the total income per day
+        /// </summary>
+        /// <param name="shop"></param>
+        /// <param name="dateTime"></param>
+        /// <param name="shopCounter"></param>
         public void ShopSales(Shop shop, DateTime dateTime, int shopCounter)
         {
             
@@ -40,6 +46,11 @@ namespace FactoryProject.Domains
             PrintService.ShopsInformation(shop, dateTime, shopCounter);
         }
 
+
+        /// <summary>
+        /// Checks if the shop's warehouse need's supplies
+        /// </summary>
+        /// <param name="dailyProduction"></param>
         public void InNeedOfChocolates(DailyProduction dailyProduction)
         {
             if (ShopWarehouse.ShopBlackChocolateList.Count <= (dailyProduction.BlackChocoPerDay * 0.5) * 0.25)

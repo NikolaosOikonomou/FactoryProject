@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace FactoryProject.Services
 {
+    /// <summary>
+    /// All the printing Methods 
+    /// </summary>
     class PrintService
     {
         public static void FactoryInfo(Factory factory, DateTime dateTime)

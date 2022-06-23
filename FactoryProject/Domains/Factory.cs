@@ -34,6 +34,12 @@ namespace FactoryProject
             Warehouse.BestOfferPrice = Warehouse.BestOfferStored.PricePerKilo;
         }
         
+        /// <summary>
+        /// Represents a factory working day
+        /// </summary>
+        /// <param name="shop"></param>
+        /// <param name="dateTime"></param>
+        /// <param name="index"></param>
         public void WorkingDay(Shop shop, DateTime dateTime, int index)
         {
             Console.WriteLine($"\nThe Warehouse has {Warehouse.RowMatterialsQuantity} kilos row materials");

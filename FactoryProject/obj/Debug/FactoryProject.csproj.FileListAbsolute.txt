@@ -5,3 +5,4 @@ C:\Users\Nikos\source\repos\FactoryProject\FactoryProject\obj\Debug\FactoryProje
 C:\Users\Nikos\source\repos\FactoryProject\FactoryProject\obj\Debug\FactoryProject.csproj.CoreCompileInputs.cache
 C:\Users\Nikos\source\repos\FactoryProject\FactoryProject\obj\Debug\FactoryProject.exe
 C:\Users\Nikos\source\repos\FactoryProject\FactoryProject\obj\Debug\FactoryProject.pdb
+C:\Users\Nikos\source\repos\FactoryProject\FactoryProject\obj\Debug\FactoryProject.csproj.SuggestedBindingRedirects.cache

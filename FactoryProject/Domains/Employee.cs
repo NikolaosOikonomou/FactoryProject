@@ -25,6 +25,10 @@ namespace FactoryProject
             WorkPosition = workPosition;
         }
 
+        /// <summary>
+        /// Create's and  adds the employees
+        /// </summary>
+        /// <returns></returns>
         public static Dictionary<int, Employee> EmployeeList()
         {
             Dictionary<int, Employee> DictionaryOfEmployees = new Dictionary<int, Employee>();

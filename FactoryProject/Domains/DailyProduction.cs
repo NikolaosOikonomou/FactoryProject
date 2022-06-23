@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace FactoryProject.Domains
 {
+    /// <summary>
+    /// Produce the chocolates.Calculates the raw materials used and distributes the chocolates to the
+    /// production warehouse and to the Shop.
+    /// </summary>
     class DailyProduction
     {
 
@@ -32,6 +36,9 @@ namespace FactoryProject.Domains
             TotalProducationPerDay = BlackChocoPerDay + WhiteChocoPerDay + MilkChocoPerDay;
         }
 
+        /// <summary>
+        /// Chocolates production per day
+        /// </summary>
         public void ChocolatesProduction()
         {
             for (int i = 0; i < BlackChocoPerDay; i++)  
@@ -44,11 +51,25 @@ namespace FactoryProject.Domains
                 MilkChocolatesList.Add(new MilkChocolate());
         }
     
+
+        /// <summary>
+        /// Calculates the total raw materials used per day
+        /// </summary>
+        /// <param name="blackWeight"></param>
+        /// <param name="milkWeight"></param>
+        /// <param name="whiteWeight"></param>
+        /// <returns></returns>
         public double DailyRowMaterialsUsed(double blackWeight, double milkWeight, double whiteWeight)
         {
             return blackWeight * BlackChocoPerDay + milkWeight * MilkChocoPerDay + whiteWeight * WhiteChocoPerDay;
         }
 
+        /// <summary>
+        /// The first day this method will be called.Destributes the chocolates to prodution warehouse
+        /// and to the Shop
+        /// </summary>
+        /// <param name="productionWarehouse"></param>
+        /// <param name="shopWarehouse"></param>
         public void ChocolatesToProductionWarehouseAndShop(ProductionWarehouse productionWarehouse, ShopWarehouse shopWarehouse)
         {
             
@@ -76,6 +97,11 @@ namespace FactoryProject.Domains
           
         }
 
+
+        /// <summary>
+        /// After first day using this method.Distributes the chocolates to production warehouse
+        /// </summary>
+        /// <param name="productionWarehouse"></param>
         public void ChocolatesToProductionWarehouse(ProductionWarehouse productionWarehouse)
         {
             for (int i = 0; i < BlackChocolateList.Count; i++)

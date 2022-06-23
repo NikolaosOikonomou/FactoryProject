@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace FactoryProject.Domains
 {
+    /// <summary>
+    /// The main entity
+    /// </summary>
     class Company
     {
         public DateTime ThisDay { get; set; }
@@ -31,7 +34,7 @@ namespace FactoryProject.Domains
             PrintService.FactoryInfo(Factory,ThisDay);
             PrintService.BestOfferDetails(Factory.Warehouse);
             Shops.Add(new Shop());
-            for (int i = 1; i < 150; i++)
+            for (int i = 1; i < 150; i++) //Represents the days
             {
                 var shopCounter = 1;
                 foreach (Shop shop in Shops)

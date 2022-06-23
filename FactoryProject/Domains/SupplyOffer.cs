@@ -30,6 +30,10 @@ namespace FactoryProject.Domains
             RowMatterialQuality = rowMatterialQuality;
         }
 
+        /// <summary>
+        /// Will produce 3 random offer's about raw matterial
+        /// </summary>
+        /// <returns></returns>
         public static SupplyOffer[] SupplyOffers()
         {
             Random rand = new Random();

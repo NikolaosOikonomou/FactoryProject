@@ -21,6 +21,10 @@ namespace FactoryProject.Domains
             BestOfferStored = new SupplyOffer();
         }
        
+        /// <summary>
+        /// Will choose the best offer
+        /// </summary>
+        /// <returns></returns>
         public static SupplyOffer BestOffer()
         {
             SupplyOffer[] offers = SupplyOffer.SupplyOffers();

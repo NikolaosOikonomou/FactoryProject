@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace FactoryProject.Domains
 {
+    /// <summary>
+    /// The factory's warehouse
+    /// </summary>
     class ProductionWarehouse
     {
         public List<BlackChocolate> WarehouseBlackChocolateList { get; set; }
@@ -19,6 +22,10 @@ namespace FactoryProject.Domains
             WarehouseMilkChocolatesList = new List<MilkChocolate>();
         }
         
+        /// <summary>
+        /// Refilling Shop's Warehouse when needed for Black chocolates
+        /// </summary>
+        /// <param name="shopWarehouse"></param>
         public void RefillBlackChocolate(ShopWarehouse shopWarehouse)
         {
             for (int i = shopWarehouse.ShopBlackChocolateList.Count; i <= shopWarehouse.MaxCapacityBlackChoco - 1; i++)
@@ -28,6 +35,10 @@ namespace FactoryProject.Domains
             }
         }
 
+        /// <summary>
+        /// Refilling Shop's Warehouse when needed for White chocolates
+        /// </summary>
+        /// <param name="shopWarehouse"></param>
         public void RefillWhiteChocolate(ShopWarehouse shopWarehouse)
         {
             for(int i = shopWarehouse.ShopWhiteChocolateList.Count; i <= shopWarehouse.MaxCapacityWhiteChoco - 1; i++)
@@ -37,6 +48,10 @@ namespace FactoryProject.Domains
             }
         }
 
+        /// <summary>
+        /// Refilling Shop's Warehouse when needed for Milk chocolates
+        /// </summary>
+        /// <param name="shopWarehouse"></param>
         public void RefillMilkChocolate(ShopWarehouse shopWarehouse)
         {
             for (int i = shopWarehouse.ShopMilkChocolateList.Count; i <= shopWarehouse.MaxCapacityMilkChoco - 1; i++)
@@ -46,6 +61,10 @@ namespace FactoryProject.Domains
             }
         }
 
+        /// <summary>
+        /// Checks if the company can create more shops
+        /// </summary>
+        /// <param name="shops"></param>
         public void NewShopCheck(List<Shop> shops)
         {
             if(WarehouseBlackChocolateList.Count > 1765)
